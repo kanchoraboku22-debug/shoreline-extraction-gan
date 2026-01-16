@@ -4,7 +4,7 @@ FROM python:3.11-slim-bullseye
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies including GUI support
 RUN apt-get update && apt-get install -y \
     build-essential \
     gdal-bin \
@@ -13,6 +13,12 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     git \
     wget \
+    libxkbcommon-x11-0 \
+    libdbus-1-3 \
+    libfontconfig1 \
+    libxext6 \
+    libxrender1 \
+    mesa-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # Set GDAL environment variables
@@ -23,8 +29,9 @@ ENV GDAL_CONFIG=/usr/bin/gdal-config \
 # Copy requirements file
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies (core + GUI)
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir PyQt6 PyQt6-Charts matplotlib
 
 # Copy project files
 COPY . .
@@ -32,21 +39,35 @@ COPY . .
 # Create output directories
 RUN mkdir -p model_outputs/{analysis,processed,validation_plots}
 
-# Expose port for Jupyter (optional)
-EXPOSE 8888
+# Expose ports for Jupyter and GUI services
+EXPOSE 8888 5000 8000
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     CONDA_DEFAULT_ENV=shoreline_gan \
-    PATH=/opt/conda/envs/shoreline_gan/bin:$PATH
+    PATH=/opt/conda/envs/shoreline_gan/bin:$PATH \
+    QT_QPA_PLATFORM=offscreen
 
-# Default command runs the complete pipeline
-CMD ["python", "scripts/run_phase3_full.py"]
+# Default command: Run advanced GUI dashboard
+CMD ["python", "shoreline_gui_advanced.py"]
+
+# Alternative: Run pipeline executor GUI
+# CMD ["python", "shoreline_gui_pipeline.py"]
+
+# Alternative: Run standalone GUI
+# CMD ["python", "shoreline_gui.py"]
+
+# Alternative: Run complete pipeline
+# CMD ["python", "scripts/run_phase3_full.py"]
 
 # Alternative: Start Jupyter for interactive analysis
 # ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root"]
 
-# Build: docker build -t shoreline-gan:1.0 .
+# Build: docker build -t shoreline-gan:latest .
+# Run GUI with X11 forwarding (Linux/macOS):
+#   docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix shoreline-gan:latest
+# Run pipeline executor:
+#   docker run shoreline-gan:latest python shoreline_gui_pipeline.py
 # Run:   docker run -v /data:/app/data -v /output:/app/model_outputs shoreline-gan:1.0
 # Jupyter: docker run -p 8888:8888 -v /data:/app/data -v /output:/app/model_outputs shoreline-gan:1.0
