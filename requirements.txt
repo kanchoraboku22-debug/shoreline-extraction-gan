@@ -1,0 +1,51 @@
+# Shoreline Extraction GAN - Python Dependencies
+
+# Core Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-image>=0.21.0
+scikit-learn>=1.3.0
+
+# Geospatial & GIS
+geopandas>=0.13.0
+rasterio>=1.3.0
+shapely>=2.0.0
+pyproj>=3.5.0
+Fiona>=1.9.0
+
+# Deep Learning
+tensorflow>=2.13.0
+keras>=2.13.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Visualization & Plotting
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# GUI & Interactive
+PyQt6>=6.4.0
+PyQt6-Charts>=6.4.0
+
+# Utilities & Support
+Pillow>=10.0.0
+opencv-python>=4.8.0
+tqdm>=4.66.0
+pyyaml>=6.0
+
+# Optional: Jupyter for notebooks
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipython>=8.12.0
+
+# Optional: Flask for API
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Development & Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.9.0
+pylint>=2.17.0

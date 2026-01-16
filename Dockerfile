@@ -30,8 +30,10 @@ ENV GDAL_CONFIG=/usr/bin/gdal-config \
 COPY requirements.txt .
 
 # Install Python dependencies (core + GUI)
-RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir PyQt6 PyQt6-Charts matplotlib
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt || true && \
+    pip install --no-cache-dir --only-binary=:all: PyQt6-sip PyQt6 PyQt6-Charts matplotlib 2>/dev/null || \
+    pip install --no-cache-dir matplotlib plotly jupyter flask
 
 # Copy project files
 COPY . .
@@ -48,6 +50,9 @@ ENV PYTHONUNBUFFERED=1 \
     CONDA_DEFAULT_ENV=shoreline_gan \
     PATH=/opt/conda/envs/shoreline_gan/bin:$PATH \
     QT_QPA_PLATFORM=offscreen
+
+# Use docker_entrypoint_gui.sh as entrypoint for smart GUI/headless detection
+ENTRYPOINT ["bash", "docker_entrypoint_gui.sh"]
 
 # Default command: Run advanced GUI dashboard
 CMD ["python", "shoreline_gui_advanced.py"]
