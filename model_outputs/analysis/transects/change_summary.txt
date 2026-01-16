@@ -1,0 +1,11 @@
+COASTAL CHANGE ANALYSIS SUMMARY
+==================================================
+
+Total Transects......................... 62
+Mean EPR (pixels/year).................. 0.00
+Std EPR (pixels/year)................... 0.00
+Max Erosion (pixels/year)............... 0.00
+Max Accretion (pixels/year)............. 0.00
+Erosion Count........................... 0
+Accretion Count......................... 0
+Stable Count............................ 62

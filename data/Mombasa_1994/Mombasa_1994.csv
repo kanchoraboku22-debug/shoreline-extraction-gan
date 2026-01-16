@@ -1,0 +1,2 @@
+file,xmin,ymin,xmax,ymax,xres,yres,epsg,cols,rows
+data\Mombasa_1994\mombasa_1994_RGB.tif,561030.0,9535680.0,599940.0,9574440.0,30.0,30.0,32737,1297,1292

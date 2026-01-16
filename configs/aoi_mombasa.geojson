@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mombasa Coast AOI"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [39.55, -4.15],
+            [39.75, -4.15],
+            [39.75, -3.95],
+            [39.55, -3.95],
+            [39.55, -4.15]
+          ]
+        ]
+      }
+    }
+  ]
+}
