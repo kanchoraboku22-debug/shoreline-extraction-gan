@@ -1,15 +1,20 @@
-# Shoreline Extraction GAN - Documentation
+# Shoreline Extraction GAN
 
-Welcome to the **Shoreline Extraction GAN** project documentation. This site hosts comprehensive information about automated shoreline extraction, coastal change analysis, and forecasting using satellite imagery and deep learning.
+## 🌊 Deep Learning-Based Shoreline Detection & Forecasting
 
-## 🎯 Quick Navigation
+A complete Python pipeline for extracting shoreline features from satellite imagery, analyzing temporal change rates, and generating predictions using LSTM neural networks.
 
-- **[Project Overview](/)** - Start here
-- **[Getting Started](docs/getting-started.md)** - Installation and quick start
-- **[Methods](docs/methods.md)** - Technical approach and algorithms
-- **[Results](docs/results.md)** - Key findings and visualizations
-- **[API Reference](docs/api.md)** - Code documentation
-- **[FAQ](docs/faq.md)** - Frequently asked questions
+**🚀 Quick Launch:**
+- **Windows:** Double-click `LAUNCH_GUI.bat`
+- **macOS/Linux:** Run `bash launch_gui.sh`
+- **Python:** `python shoreline_gui_advanced.py`
+
+## 📖 Complete Documentation
+
+- **[GUI User Guide](GUI_USER_GUIDE.md)** - All 4 applications explained
+- **[GitHub Setup](../GITHUB_REPOSITORY_SETUP.md)** - Project configuration
+- **[Contributing](../CONTRIBUTING.md)** - Developer guidelines
+- **[Manuscript Template](../MANUSCRIPT_TEMPLATE.md)** - Publication template
 
 ---
 
