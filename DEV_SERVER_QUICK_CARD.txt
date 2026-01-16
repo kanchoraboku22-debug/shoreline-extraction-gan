@@ -1,0 +1,204 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    🌊 DEV SERVER REOPEN - QUICK CARD 🌊                     ║
+║                                                                             ║
+║            One-Click Dev Environment Restart - All Platforms               ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🚀 FASTEST WAY TO START
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WINDOWS:
+  ┌─────────────────────────────────┐
+  │  REOPEN_DEV_SERVER.bat          │
+  │                                 │
+  │  (Double-click or run directly) │
+  └─────────────────────────────────┘
+
+LINUX / macOS:
+  ┌─────────────────────────────────┐
+  │  bash reopen_dev_server.sh      │
+  │                                 │
+  │  (Run in terminal)              │
+  └─────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ✨ WHAT HAPPENS AUTOMATICALLY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Checks if Docker is installed
+✅ Checks if Docker is running
+✅ Finds your existing container
+✅ Restarts it if it's stopped
+✅ Creates a new one if needed
+✅ Mounts your data directories
+✅ Enables GPU support
+✅ Attaches automatically
+⏱️  All done in 10-30 seconds!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🎯 THREE SCENARIOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCENARIO 1: Container is Running
+┌──────────────────────────────────────────────┐
+│ Script finds it → Attaches immediately       │
+│ Time: < 1 second                             │
+│ Result: ✅ Working instantly                │
+└──────────────────────────────────────────────┘
+
+SCENARIO 2: Container is Stopped
+┌──────────────────────────────────────────────┐
+│ Script finds it → Restarts it → Attaches    │
+│ Time: < 5 seconds                            │
+│ Result: ✅ Everything preserved              │
+└──────────────────────────────────────────────┘
+
+SCENARIO 3: Container Doesn't Exist
+┌──────────────────────────────────────────────┐
+│ Script creates new container → Attaches      │
+│ Time: 30-60 seconds (first run)              │
+│ Result: ✅ Fresh, fully configured           │
+└──────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📊 COMMON TASKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TASK                          COMMAND / ACTION
+────────────────────────────────────────────────────────────────────────────
+Launch Professional GUI       docker exec shoreline_gan_gui \
+                              python shoreline_gan_professional.py
+
+Run Phase 1 (Preprocessing)   docker exec shoreline_gan_gui \
+                              python PHASE_1_QUICK_START.py
+
+Run Phase 2 (GAN Training)    docker exec shoreline_gan_gui \
+                              python PHASE_2_QUICK_START.py
+
+Run Phase 3 (Temporal)        docker exec shoreline_gan_gui \
+                              python PHASE_3_QUICK_START.py
+
+Check Container Status        docker ps -a
+
+View Live Logs               docker logs -f shoreline_gan_gui
+
+Stop Container               docker stop shoreline_gan_gui
+
+Get Shell Inside Container   docker exec -it shoreline_gan_gui /bin/bash
+
+Remove Container (Fresh)     docker rm shoreline_gan_gui
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🔧 IF SOMETHING GOES WRONG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM                       SOLUTION
+────────────────────────────────────────────────────────────────────────────
+Docker not found             Install from https://www.docker.com/
+
+Docker not running           Start Docker Desktop and wait for it to load
+
+Container won't start        docker logs shoreline_gan_gui (check logs)
+                             docker rm shoreline_gan_gui (remove)
+                             bash reopen_dev_server.sh (try again)
+
+Port 8000 in use             docker stop shoreline_gan_gui
+                             Then try again
+
+GPU not detected             It's optional! CPU works fine
+                             Or install NVIDIA Docker
+
+Connection refused           Wait a few seconds for container to start
+
+Out of memory               Reduce batch size in settings
+                            Or use fewer images
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For detailed information, see:
+
+  📄 DEV_SERVER_REOPEN_GUIDE.md         ← Complete guide with all options
+  📄 DEV_SERVER_REOPEN_SUMMARY.md       ← Implementation details
+  📄 DOCKER_GUI_LAUNCH_GUIDE.md         ← Docker setup guide
+  📄 PROFESSIONAL_GUI_README.md         ← GUI usage guide
+  📄 QUICK_START_GUIDE.txt              ← Architecture overview
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 💡 PRO TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ USE THE SCRIPT (not manual commands)
+   → Automatic error handling
+   → Preserves all settings
+   → Works every time
+
+✅ CLOSE VS CODE OR TERMINAL BEFORE STOPPING
+   → Cleaner shutdown
+   → No zombie processes
+
+✅ BACKUP IMPORTANT RESULTS
+   → model_outputs/ is automatically mounted
+   → But always keep local copies
+
+✅ CHECK LOGS IF CONFUSED
+   docker logs -f shoreline_gan_gui
+   → Shows what's happening
+
+✅ SAVE YOUR WORK BEFORE CLOSING
+   → Container keeps data
+   → But better safe than sorry
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📋 DAILY WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MORNING:
+  1. bash reopen_dev_server.sh
+     → Container starts/restarts
+  
+  2. python shoreline_gan_professional.py
+     → GUI launches
+  
+  3. Start your analysis work
+
+LUNCH/BREAK:
+  4. docker stop shoreline_gan_gui
+     → Save progress, stop container
+
+NEXT MORNING:
+  5. bash reopen_dev_server.sh
+     → Everything is exactly as you left it!
+     → No setup needed
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ✅ YOU'RE ALL SET!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Your dev environment can now be reopened with one click.
+No more manual Docker commands.
+No more remembering container names.
+Just run the script and you're in!
+
+Questions? Check DEV_SERVER_REOPEN_GUIDE.md for the complete documentation.
+
+Happy coding! 🚀
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                             ║
+║              🌊 SHORELINE EXTRACTION GAN - DEV TOOLS 🌊                   ║
+║                         v2.0 Production Ready                              ║
+║                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════╝
