@@ -1,0 +1,48 @@
+site:
+  title: Shoreline Extraction GAN
+  description: Deep Learning-Based Shoreline Detection and Forecasting System
+  author: Your Name
+  url: https://kanchoraboku22-debug.github.io/shoreline-extraction-gan/
+
+theme: jekyll-theme-minimal
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+include:
+  - README.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - data/
+  - model_outputs/
+  - pix2pix_modules/
+  - lstm_utils/
+  - .github/
+  - .*
+
+# Markdown settings
+markdown: kramdown
+
+# SEO
+google_analytics: UA-XXXXXXXXX-X  # Add your Google Analytics ID
+
+# Social
+social:
+  links:
+    - https://github.com/kanchoraboku22-debug/shoreline-extraction-gan
